@@ -18,8 +18,13 @@
 
 from fbchat import log, Client
 from fbchat.models import *
+import sys
 
-# Change this to your group id
+username = sys.argv[1]
+password = sys.argv[2]
+
+# client.searchForUsers('shimanto')
+# Change this to id
 old_thread_id = '1574280616'
 
 # Change these to match your liking
@@ -51,5 +56,5 @@ class KeepBot(Client):
             log.info("{} changed {}'s' nickname. It will be changed back".format(author_id, changed_for))
             self.changeNickname(old_nicknames[changed_for], changed_for, thread_id=thread_id, thread_type=thread_type)
 
-client = KeepBot("orionfoysal@gmail.com", "wahidabegum2")
+client = KeepBot(username, password)
 client.listen()
